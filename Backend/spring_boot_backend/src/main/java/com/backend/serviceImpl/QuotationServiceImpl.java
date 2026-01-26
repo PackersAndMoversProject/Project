@@ -13,6 +13,7 @@ import com.backend.service.QuotationService;
 //import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @org.springframework.stereotype.Service
 public class QuotationServiceImpl implements QuotationService {
@@ -29,6 +30,7 @@ public class QuotationServiceImpl implements QuotationService {
         this.serviceRepository = serviceRepository;
     }
 
+    // 🔹 EXISTING METHOD (DO NOT REMOVE)
     @Override
     public QuotationResponseDto createQuotation(QuotationRequestDto req) {
 
@@ -38,7 +40,6 @@ public class QuotationServiceImpl implements QuotationService {
         Service service = serviceRepository.findById(req.serviceId)
                 .orElseThrow(() -> new RuntimeException("Service not found"));
 
-        // 🔹 BASIC PRICE LOGIC (simple for now)
         double amount = service.getBasePrice();
         amount += req.manpowerCount != null ? req.manpowerCount * 500 : 0;
         amount += Boolean.TRUE.equals(req.packingRequired) ? 1500 : 0;
@@ -82,5 +83,18 @@ public class QuotationServiceImpl implements QuotationService {
         response.status = quotation.getStatus().name();
 
         return response;
+    }
+
+    // 🔹 NEW METHOD (ADD THIS)
+    @Override
+    public List<Quotation> getQuotationsByCustomer(Long customerId) {
+        return quotationRepository.findByCustomer_UserId(customerId);
+    }
+
+    // 🔹 NEW METHOD (ADD THIS)
+    @Override
+    public Quotation getQuotationById(Long quotationId) {
+        return quotationRepository.findById(quotationId)
+                .orElseThrow(() -> new RuntimeException("Quotation not found"));
     }
 }
