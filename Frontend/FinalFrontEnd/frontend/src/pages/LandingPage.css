@@ -1,0 +1,258 @@
+/* Global Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    /* Semi-transparent overlay */
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #f39c12;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 0;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #e67e22;
+}
+
+/* Button Styles */
+.btn-quote {
+    background: #e67e22;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-quote:hover {
+    background: #d35400;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dark overlay for contrast */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-cta {
+    display: inline-block;
+    background: #e67e22;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+    background: #d35400;
+}
+
+/* Features Section */
+.features-section {
+    padding: 5rem 2rem;
+    background: #f9f9f9;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: #e67e22;
+    margin-bottom: 1.5rem;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.feature-desc {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* About Section Preview */
+.about-preview {
+    padding: 5rem 2rem;
+    background: #fff;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text {
+    color: #34495e;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+        background: #2c3e50;
+        /* Solid background on mobile */
+    }
+
+    .navbar-nav {
+        margin-top: 1rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
